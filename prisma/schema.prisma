@@ -1,0 +1,168 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  GUEST
+  CLIENT
+  ADMIN
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  RESERVED
+  UNDER_NEGOTIATION
+  SOLD
+}
+
+enum PropertyType {
+  RESIDENTIAL_HOUSE
+  LUXURY_APARTMENT
+  COMMERCIAL
+  LAND_PLOTS
+  BEACHFRONT_VILLA
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  VIEWING_SCHEDULED
+  NEGOTIATING
+  CLOSED
+  CANCELLED
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  RESCHEDULED
+  CANCELLED
+  COMPLETED
+}
+
+model User {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  name         String?
+  phone        String?
+  role         Role          @default(CLIENT)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  favorites    Favorite[]
+  appointments Appointment[]
+  inquiries    Inquiry[]
+}
+
+model Property {
+  id             String         @id @default(uuid())
+  title          String
+  slug           String         @unique
+  description    String
+  priceLKR       Float
+  priceUSD       Float?
+  propertyType   PropertyType
+  status         PropertyStatus @default(AVAILABLE)
+  address        String
+  city           String
+  district       String
+  province       String
+  bedrooms       Int
+  bathrooms      Int
+  areaSqft       Float
+  landSizePerch  Float?
+  features       String[]
+  images         String[]
+  floorPlanUrl   String?
+  virtualTourUrl String?
+  isFeatured     Boolean        @default(false)
+  viewsCount     Int            @default(0)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  favorites    Favorite[]
+  appointments Appointment[]
+  inquiries    Inquiry[]
+}
+
+model Favorite {
+  id         String   @id @default(uuid())
+  userId     String
+  propertyId String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, propertyId])
+}
+
+model Appointment {
+  id            String            @id @default(uuid())
+  propertyId    String
+  userId        String?
+  clientName    String
+  clientEmail   String
+  clientPhone   String
+  preferredDate DateTime
+  preferredTime String
+  notes         String?
+  status        AppointmentStatus @default(PENDING)
+  adminNotes    String?
+  createdAt     DateTime          @default(now())
+
+  property Property @relation(fields: [propertyId], references: [id])
+  user     User?    @relation(fields: [userId], references: [id])
+}
+
+model Inquiry {
+  id         String     @id @default(uuid())
+  propertyId String?
+  userId     String?
+  name       String
+  email      String
+  phone      String
+  message    String
+  type       String
+  status     LeadStatus @default(NEW)
+  notes      String?
+  createdAt  DateTime   @default(now())
+
+  property Property? @relation(fields: [propertyId], references: [id])
+  user     User?     @relation(fields: [userId], references: [id])
+}
+
+model BlogPost {
+  id          String   @id @default(uuid())
+  title       String
+  slug        String   @unique
+  excerpt     String
+  content     String
+  coverImage  String
+  category    String
+  tags        String[]
+  authorName  String   @default("KING Realty")
+  published   Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  viewsCount  Int      @default(0)
+}
+
+model Testimonial {
+  id         String   @id @default(uuid())
+  clientName String
+  roleTitle  String?
+  content    String
+  rating     Int      @default(5)
+  isApproved Boolean  @default(true)
+  createdAt  DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
