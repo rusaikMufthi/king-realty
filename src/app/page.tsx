@@ -209,10 +209,10 @@ export default function HomePage() {
       {/* MEET PRINCIPAL AGENT BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="gold-card p-8 sm:p-12 rounded-3xl relative overflow-hidden flex flex-col lg:flex-row items-center gap-10">
-          <div className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-2xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-2xl flex-shrink-0">
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-2xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-2xl flex-shrink-0 bg-[#18181B]">
             <Image
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
-              alt="Principal Real Estate Agent"
+              src="/agent-mudhassir.jpg"
+              alt="MUDHASSIR SHAREEF - KING Realty Principal Real Estate Agent"
               fill
               className="object-cover object-top"
             />
@@ -222,8 +222,8 @@ export default function HomePage() {
             <span className="text-xs font-semibold text-[#D4AF37] tracking-widest uppercase font-serif">
               Personal Brand & Reputation
             </span>
-            <h2 className="text-3xl font-bold text-slate-100 font-serif">
-              Meet Your Independent Advisory Partner
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-100 font-serif">
+              Meet Your Agent: MUDHASSIR SHAREEF
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
               “My commitment is simple: absolute transparency, rapid response, and finding the perfect match between high-net-worth buyers and exceptional Sri Lankan properties.”
@@ -233,14 +233,16 @@ export default function HomePage() {
                 href="/agent"
                 className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#BF953F] via-[#D4AF37] to-[#AA771C] text-[#0B0B0C] font-bold text-xs hover:brightness-110 shadow-lg"
               >
-                Read Agent Profile & Credentials
+                Read Mudhassir Shareef&apos;s Profile & Credentials
               </Link>
-              <Link
-                href="/contact"
-                className="px-6 py-3 rounded-xl bg-[#18181B] border border-[#D4AF37] text-[#D4AF37] font-semibold text-xs hover:bg-[#D4AF37] hover:text-[#0B0B0C] transition-all"
+              <a
+                href="https://wa.me/94776937333?text=Hello%20Mudhassir%20Shareef,%20I%20am%20inquiring%20about%20a%20property."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-emerald-900/40"
               >
-                Book Private Meeting
-              </Link>
+                Direct WhatsApp Chat (+94 77 693 7333)
+              </a>
             </div>
           </div>
         </div>

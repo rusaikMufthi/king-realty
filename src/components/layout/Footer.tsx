@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-3 text-slate-300">
                 <Mail className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-                <span>inquiries@kingrealty.lk</span>
+                <span>kingrealty91@gmail.com</span>
               </div>
             </div>
           </div>

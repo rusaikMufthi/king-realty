@@ -75,7 +75,7 @@ export default function ContactPage() {
                 <Mail className="w-4 h-4 text-[#D4AF37] flex-shrink-0 mt-1" />
                 <div>
                   <div className="font-semibold text-slate-200">Email Enquiries</div>
-                  <div className="text-slate-400 mt-0.5">inquiries@kingrealty.lk</div>
+                  <div className="text-slate-400 mt-0.5">kingrealty91@gmail.com</div>
                 </div>
               </div>
 

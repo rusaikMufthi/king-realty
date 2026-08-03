@@ -360,7 +360,7 @@ export default function SinglePropertyPage({ params }: PageProps) {
             </button>
 
             <a
-              href={`https://wa.me/94777778888?text=I%20am%20interested%20in%20viewing%20${encodeURIComponent(property.title)}`}
+              href={`https://wa.me/94776937333?text=Hello%20Mudhassir%20Shareef,%20I%20am%20interested%20in%20viewing%20${encodeURIComponent(property.title)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3.5 rounded-xl bg-[#18181B] border border-emerald-500/50 text-emerald-400 font-semibold text-xs hover:bg-emerald-950/40 transition-all flex items-center justify-center gap-2"
@@ -369,18 +369,18 @@ export default function SinglePropertyPage({ params }: PageProps) {
             </a>
 
             <div className="pt-4 border-t border-[#D4AF37]/15 flex items-center gap-3">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37]">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37] bg-[#18181B]">
                 <Image
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80"
-                  alt="Agent"
+                  src="/agent-mudhassir.jpg"
+                  alt="MUDHASSIR SHAREEF"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="text-xs">
-                <div className="font-bold text-slate-100 font-serif">KING Realty Lead Agent</div>
-                <div className="text-slate-400">+94 77 777 8888</div>
-                <div className="text-[#D4AF37] text-[10px]">Licensed Colombo Broker</div>
+                <div className="font-bold text-slate-100 font-serif">MUDHASSIR SHAREEF</div>
+                <div className="text-slate-400">+94 77 693 7333</div>
+                <div className="text-[#D4AF37] text-[10px]">Founder & Principal Agent</div>
               </div>
             </div>
           </div>
